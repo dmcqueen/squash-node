@@ -1,11 +1,11 @@
 var request = require('request');
 var async = require('async');
 
-function SquashError (msg) {
+var SquashError = function (msg) {
   Error.call(this);
   Error.captureStackTrace(this, arguments.callee);
   this.message = msg;
-  this.name = 'Squash3Error';
+  this.name = 'Squash4Error';
 };
 
 SquashError.prototype.__proto__ = Error.prototype;
