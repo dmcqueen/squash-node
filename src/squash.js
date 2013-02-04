@@ -5,7 +5,7 @@ var SquashError = function (msg) {
   Error.call(this);
   Error.captureStackTrace(this, arguments.callee);
   this.message = msg;
-  this.name = 'Squash4Error';
+  this.name = 'SquashError';
 };
 
 SquashError.prototype.__proto__ = Error.prototype;
