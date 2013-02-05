@@ -3,6 +3,10 @@ squash-node
 
 Node.js module that pushes errors to the Squash (https://github.com/SquareSquash/web) reporting system.   
 
+Install with 
+
+	npm install squash-node
+
 An example express app with error handling middleware can be seen here.
 https://github.com/dmcqueen/squash-express
 
