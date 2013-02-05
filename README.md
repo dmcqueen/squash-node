@@ -42,7 +42,7 @@ You'll need a config.json for nconf like so
 	} 
 	
 	 
-Then add an error handling middleware to your express app 
+Then add error handling middleware that reports Error objects to Squash from your express app 
 
 	app.use(function(err, req, res, next){
 		squash.report(err);
