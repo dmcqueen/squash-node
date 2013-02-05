@@ -50,6 +50,6 @@ Then add error handling middleware that reports Error objects to Squash from you
 
 	app.use(function(err, req, res, next){
 		squash.report(err);
-    		next();
+		next();
 	});
 
