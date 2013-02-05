@@ -1,7 +1,7 @@
 var request = require('request');
 var async = require('async');
 
-var SquashError = function (msg) {
+/*var SquashError = function (msg) {
   Error.call(this);
   Error.captureStackTrace(this, arguments.callee);
   this.message = msg;
@@ -9,7 +9,7 @@ var SquashError = function (msg) {
 };
 
 SquashError.prototype.__proto__ = Error.prototype;
-
+*/
 Error.prepareStackTrace = function (error, stack) {
   return stack;
 };
@@ -243,4 +243,4 @@ var mergeBang = function(modified, constant) {
 
 
 module.exports.Squash = Squash;
-module.exports.SquashError = SquashError;
+//module.exports.SquashError = SquashError;
