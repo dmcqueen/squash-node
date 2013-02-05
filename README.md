@@ -35,14 +35,14 @@ You'll need a config.json for nconf like so
 
 	{
 		"squash" : {
-			"apihost" : "http://squash.neudesic-dev.com",
-			"apikey" : "00200418-be5e-491c-8bf4-0e30fa5409a9",
-			"env" : "production"
+			"apihost" : "http://your-squash-server",
+			"apikey" : "the-key-for-your-project",
+			"env" : "production|development|whatever"
 		}
 	} 
 	
 	 
-Then add an error handling middleware 
+Then add an error handling middleware to your express app 
 
 	app.use(function(err, req, res, next){
 		squash.report(err);
