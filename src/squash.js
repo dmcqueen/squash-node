@@ -75,17 +75,8 @@ Squash.prototype.report = function(error) {
       fields.class_name = 'Error';
     }
 
-/*    error.stack.forEach(function (frame) {
-    	  console.error(' call: %s:%d - %s'
-            , frame.getFileName()
-            , frame.getLineNumber()
-            , frame.getFunctionName());
-   	});
-*/
     buildBacktrace(error.stack, function(err, backtraces) {
   	  fields.backtraces = backtraces;
-  	  console.log("BACKTRACES");
-  	  console.log(JSON.stringify(backtraces));
       fields.capture_method = error.mode;
       fields.occurred_at = ISODateString(new Date());
       body = fields;
@@ -179,8 +170,6 @@ var buildBacktrace = function(stack, callback) {
   backtraces = [];
 
   async.forEach(stack, function(line, next) {
-    console.log("LINE");
-    console.log(line.getEvalOrigin());
     context = line.getEvalOrigin();
     if (context && any(context, function(cline) {
       return cline.length > 200;
