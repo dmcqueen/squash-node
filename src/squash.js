@@ -1,9 +1,16 @@
 var request = require('request');
 var async = require('async');
 
+function oldPrepareStack = Error.prepareStackTrace;
 Error.prepareStackTrace = function (error, stack) {
+  error.__stackArray = stack;
+  return oldPrepareStack(error, stack);
+};
+
+/*Error.prepareStackTrace = function (error, stack) {
   return stack;
 };
+*/
 
 var  __hasProp = {}.hasOwnProperty, __slice = [].slice;
 var ISODateString, any, buildBacktrace, mergeBang;
