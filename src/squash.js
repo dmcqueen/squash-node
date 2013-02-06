@@ -3,7 +3,7 @@ var async = require('async');
 
 var oldPrepareStack = Error.prepareStackTrace;
 Error.prepareStackTrace = function (error, stack) {
-  error.__stackArray = function(){ return stack; });
+  error.__stackArray = function(){ return stack; };
   return oldPrepareStack(error, stack);
 };
 
