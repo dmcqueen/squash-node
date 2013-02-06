@@ -3,7 +3,7 @@ var async = require('async');
 
 var oldPrepareStack = Error.prepareStackTrace;
 Error.prepareStackTrace = function (error, stack) {
-  error.__stackArray = stack;
+  error.__stackArray = function(){ return stack; });
   return oldPrepareStack(error, stack);
 };
 
@@ -73,7 +73,7 @@ Squash.prototype.report = function(error) {
       fields.class_name = 'Error';
     }
 
-    buildBacktrace(error.__stackArray, function(err, backtraces) {
+    buildBacktrace(error.__stackArray(), function(err, backtraces) {
   	  fields.backtraces = backtraces;
       fields.capture_method = error.mode;
       fields.occurred_at = ISODateString(new Date());
