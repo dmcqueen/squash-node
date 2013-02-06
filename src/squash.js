@@ -1,5 +1,6 @@
 var request = require('request');
 var async = require('async');
+var stackTrace = require('stack-trace');
 
 /*Error.prepareStackTrace = function (error, stack) {
   return stack;
@@ -66,7 +67,7 @@ Squash.prototype.report = function(error) {
       fields.class_name = 'Error';
     }
 
-    buildBacktrace(error.stack, function(err, backtraces) {
+    buildBacktrace(stackTrace.parse(error), function(err, backtraces) {
   	  fields.backtraces = backtraces;
       fields.capture_method = error.mode;
       fields.occurred_at = ISODateString(new Date());
@@ -161,7 +162,7 @@ var buildBacktrace = function(stack, callback) {
   backtraces = [];
 
   async.forEach(stack, function(line, next) {
-    context = line.getEvalOrigin();
+    context = line.getMethodName();
     if (context && any(context, function(cline) {
       return cline.length > 200;
     })) {
