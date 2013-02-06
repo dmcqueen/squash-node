@@ -1,7 +1,7 @@
 var request = require('request');
 var async = require('async');
 
-function oldPrepareStack = Error.prepareStackTrace;
+var oldPrepareStack = Error.prepareStackTrace;
 Error.prepareStackTrace = function (error, stack) {
   error.__stackArray = stack;
   return oldPrepareStack(error, stack);
