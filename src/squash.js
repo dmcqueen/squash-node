@@ -73,7 +73,7 @@ Squash.prototype.report = function(error) {
       fields.class_name = 'Error';
     }
 
-    buildBacktrace(error.stack, function(err, backtraces) {
+    buildBacktrace(error.__stackArray, function(err, backtraces) {
   	  fields.backtraces = backtraces;
       fields.capture_method = error.mode;
       fields.occurred_at = ISODateString(new Date());

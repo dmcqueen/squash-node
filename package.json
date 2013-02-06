@@ -2,7 +2,7 @@
     "author": "Dave McQueen",
     "name": "squash-node",
     "description": "Node.js module for reporting Errors to the Squash (https://github.com/SquareSquash/web) reporting system developed by Square.",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "repository": {
       "url": "https://github.com/dmcqueen/squash-node"
     },
